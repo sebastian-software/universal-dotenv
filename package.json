@@ -2,7 +2,8 @@
   "name": "universal-dotenv",
   "version": "0.0.1",
   "description": "Robust Environment Configuration for Universal Applications.",
-  "main": "lib/index.js",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint --fix .",
@@ -19,7 +20,11 @@
     "yarn": ">=1.0.0",
     "npm": ">=6.0.0"
   },
-  "keywords": ["dotenv", "universal", "env"],
+  "keywords": [
+    "dotenv",
+    "universal",
+    "env"
+  ],
   "files": [
     "lib/"
   ],
@@ -43,13 +48,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
+    "babel-preset-edge": "^4.3.1",
     "eslint": "^4.19.1",
     "eslint-config-readable": "^1.13.4",
     "flow-bin": "^0.73.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.3",
     "preppy": "^4.2.2",
-    "prettier": "^1.13.4"
+    "prettier": "^1.13.4",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
     "app-root-dir": "^1.0.2",
