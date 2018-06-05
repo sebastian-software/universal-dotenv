@@ -1,4 +1,4 @@
-# Babel Preset Edge<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps] [![Tested with Jest][jest-img]][jest]
+# Universal DotEnv<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps] [![Tested with Jest][jest-img]][jest]
 
 [sponsor-img]: https://img.shields.io/badge/Sponsored%20by-Sebastian%20Software-692446.svg
 [sponsor]: https://www.sebastian-software.de
@@ -14,7 +14,7 @@
 [jest-img]: https://facebook.github.io/jest/img/jest-badge.svg
 [jest]: https://github.com/facebook/jest
 
-Universal Dotenv - A Robust Environment Configuration for Universal Applications.
+Universal DotEnv - A Robust Environment Configuration for Universal Applications.
 
 
 ## Features
