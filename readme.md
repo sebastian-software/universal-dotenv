@@ -25,6 +25,13 @@ Universal DotEnv - A Robust Environment Configuration for Universal Applications
 - Allows local overrides using files which use a ".local" postfix.
 
 
+## All Strings
+
+It's always a good concept to keep in mind that environment variables
+are always strings. Even if you define `true` or numbers like `100` they are
+still send over as strings. See also: https://github.com/motdotla/dotenv/issues/51
+
+
 ## Variables
 
 - `NODE_ENV`: Typically either `production`, `development` or `test`

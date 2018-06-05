@@ -11,8 +11,8 @@ if (!NODE_ENV) {
   )
 }
 
+// Either "client" or "server"
 const BUILD_TARGET = process.env.BUILD_TARGET
-
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
 // Don't include `.env.local` for `test` environment
@@ -55,6 +55,13 @@ export function getEnvironment() {
     .forEach((key) => {
       raw[key] = process.env[key]
     })
+
+  // Add core settings to raw data - which is not prefixed at all
+  raw.NODE_ENV = NODE_ENV
+
+  if (BUILD_TARGET) {
+    raw.BUILD_TARGET = BUILD_TARGET
+  }
 
   // Stringify all values so we can feed into Webpack DefinePlugin
   const stringified = {}

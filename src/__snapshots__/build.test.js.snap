@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Also serializes BUILD_TARGET 1`] = `
+Object {
+  "APP_TEST_IS_CLIENT": "true",
+  "APP_TEST_OVERRIDE": "overridden",
+  "APP_TEST_PATH": "one/two/three.js",
+  "BUILD_TARGET": "client",
+  "NODE_ENV": "test",
+}
+`;
+
+exports[`Also serializes BUILD_TARGET 2`] = `
+Object {
+  "APP_TEST_IS_CLIENT": "\\"true\\"",
+  "APP_TEST_OVERRIDE": "\\"overridden\\"",
+  "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  "BUILD_TARGET": "\\"client\\"",
+  "NODE_ENV": "\\"test\\"",
+}
+`;
+
+exports[`Also serializes BUILD_TARGET 3`] = `
+Object {
+  "process.env": Object {
+    "APP_TEST_IS_CLIENT": "\\"true\\"",
+    "APP_TEST_OVERRIDE": "\\"overridden\\"",
+    "APP_TEST_PATH": "\\"one/two/three.js\\"",
+    "BUILD_TARGET": "\\"client\\"",
+    "NODE_ENV": "\\"test\\"",
+  },
+}
+`;

@@ -4,6 +4,7 @@ exports[`Ignores non app-specific settings 1`] = `
 Object {
   "APP_TEST_OVERRIDE": "overridden",
   "APP_TEST_PATH": "one/two/three.js",
+  "NODE_ENV": "test",
 }
 `;
 
@@ -11,6 +12,7 @@ exports[`Ignores non app-specific settings 2`] = `
 Object {
   "APP_TEST_OVERRIDE": "\\"overridden\\"",
   "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  "NODE_ENV": "\\"test\\"",
 }
 `;
 
@@ -19,6 +21,7 @@ Object {
   "process.env": Object {
     "APP_TEST_OVERRIDE": "\\"overridden\\"",
     "APP_TEST_PATH": "\\"one/two/three.js\\"",
+    "NODE_ENV": "\\"test\\"",
   },
 }
 `;
@@ -28,6 +31,7 @@ Object {
   "APP_DATA": "yellow",
   "APP_TEST_OVERRIDE": "overridden",
   "APP_TEST_PATH": "one/two/three.js",
+  "NODE_ENV": "test",
 }
 `;
 
@@ -36,6 +40,7 @@ Object {
   "APP_DATA": "\\"yellow\\"",
   "APP_TEST_OVERRIDE": "\\"overridden\\"",
   "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  "NODE_ENV": "\\"test\\"",
 }
 `;
 
@@ -45,6 +50,7 @@ Object {
     "APP_DATA": "\\"yellow\\"",
     "APP_TEST_OVERRIDE": "\\"overridden\\"",
     "APP_TEST_PATH": "\\"one/two/three.js\\"",
+    "NODE_ENV": "\\"test\\"",
   },
 }
 `;
