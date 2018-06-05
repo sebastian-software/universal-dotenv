@@ -1,12 +1,59 @@
 {
   "name": "universal-dotenv",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Robust Environment Configuration for Universal Applications.",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "fix": "eslint --fix .",
+    "format": "prettier --ignore-path .gitignore --write '**/*.js' && npm run fix",
+    "test": "jest",
+    "prepare": "rimraf lib && preppy",
+    "precommit": "lint-staged",
+    "release": "git push && release-it --github.release --npm.publish --non-interactive",
+    "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
+    "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "engines": {
+    "node": ">=6.0.0",
+    "yarn": ">=1.0.0",
+    "npm": ">=6.0.0"
+  },
+  "keywords": ["dotenv", "universal", "env"],
+  "files": [
+    "lib/"
+  ],
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Sebastian Software",
+    "email": "s.werner@sebastian-software.de",
+    "url": "https://www.sebastian-software.de"
+  },
+  "bugs": {
+    "url": "https://github.com/sebastian-software/universal-dotenv/issues"
+  },
+  "homepage": "https://github.com/sebastian-software/universal-dotenv#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastian-software/universal-dotenv.git"
+  },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.49",
+    "eslint": "^4.19.1",
+    "eslint-config-readable": "^1.13.4",
+    "flow-bin": "^0.73.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.3",
+    "preppy": "^4.2.2",
+    "prettier": "^1.13.4"
+  },
+  "dependencies": {
+    "app-root-dir": "^1.0.2",
+    "dotenv": "^6.0.0",
+    "dotenv-expand": "^4.2.0"
+  }
 }
