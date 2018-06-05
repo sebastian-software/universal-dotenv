@@ -17,12 +17,68 @@
 Universal Dotenv - A Robust Environment Configuration for Universal Applications.
 
 
-## Key Features
+## Features
 
 - Supports loading `.env` files with overriding between different `NODE_ENV` settings and `BUILD_TARGET` configurations.
 - Serializes all `APP_` prefixed environment variables for usage as `raw`, `stringified` or `webpack` (for `DefinePlugin`)
 - Supports variable expansion between different settings.
 - Allows local overrides using files which use a ".local" postfix.
+
+
+## Variables
+
+- `NODE_ENV`: Typically either `production`, `development` or `test`
+- `BUILD_TARGET`: Either `client` or `server`
+
+
+## File Priority
+
+Files are being loaded in this order. Values which are already set are never overwritten. Command line environment settings e.g. via [cross-env](https://www.npmjs.com/package/cross-env) always win.
+
+- `.env.${BUILD_TARGET}.${NODE_ENV}.local`,
+- `.env.${BUILD_TARGET}.${NODE_ENV}`,
+- `.env.${BUILD_TARGET}.local`,
+- `.env.${BUILD_TARGET}`,
+- `.env.${NODE_ENV}.local`,
+- `.env.${NODE_ENV}`,
+- `.env.local`,
+- `.env`
+
+Note: `local` files without `NODE_ENV` are not respected when running in `NODE_ENV=test`.
+
+
+## Basic Usage
+
+All loading features are enabled by importing the core module itself:
+
+```js
+import "dotenv-universal"
+```
+
+After this you can access all environment settings you have defined in one of your `.env` files.
+
+```js
+console.log(process.env.APP_MY_ENV)
+```
+
+
+## Serialization
+
+The module offers access to all app specific environment settings which should be prefixed with `APP_` e.g. `APP_TITLE = "My App"`.
+
+```js
+import { getEnvironment } from "dotenv-universal"
+
+// This also loads all environment specific settings into `process.env`
+
+const { raw, stringified, webpack } = getEnvironment()
+```
+
+Return values:
+
+- raw: Just a plain JS object containing all app settings
+- stringified: Plain object but with JSON stringified values
+- webpack: For usage with [Webpacks Define Plugin](https://webpack.js.org/plugins/define-plugin/)
 
 
 

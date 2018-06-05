@@ -15,15 +15,16 @@ const BUILD_TARGET = process.env.BUILD_TARGET
 
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
+// Don't include `.env.local` for `test` environment
+// since normally you expect tests to produce the same
+// results for everyone
 const dotenvFiles = [
   BUILD_TARGET && `${dotEnvBase}.${BUILD_TARGET}.${NODE_ENV}.local`,
   BUILD_TARGET && `${dotEnvBase}.${BUILD_TARGET}.${NODE_ENV}`,
+  BUILD_TARGET && NODE_ENV !== "test" && `${dotEnvBase}.${BUILD_TARGET}.local`,
+  BUILD_TARGET && `${dotEnvBase}.${BUILD_TARGET}`,
   `${dotEnvBase}.${NODE_ENV}.local`,
   `${dotEnvBase}.${NODE_ENV}`,
-  // Don't include `.env.local` for `test` environment
-  // since normally you expect tests to produce the same
-  // results for everyone
-  NODE_ENV !== "test" && `${dotEnvBase}.${BUILD_TARGET}.local`,
   NODE_ENV !== "test" && `${dotEnvBase}.local`,
   dotEnvBase
 ].filter(Boolean)
