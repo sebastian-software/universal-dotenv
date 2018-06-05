@@ -35,13 +35,13 @@ Universal Dotenv - A Robust Environment Configuration for Universal Applications
 
 Files are being loaded in this order. Values which are already set are never overwritten. Command line environment settings e.g. via [cross-env](https://www.npmjs.com/package/cross-env) always win.
 
-- `.env.${BUILD_TARGET}.${NODE_ENV}.local`,
-- `.env.${BUILD_TARGET}.${NODE_ENV}`,
-- `.env.${BUILD_TARGET}.local`,
-- `.env.${BUILD_TARGET}`,
-- `.env.${NODE_ENV}.local`,
-- `.env.${NODE_ENV}`,
-- `.env.local`,
+- `.env.${BUILD_TARGET}.${NODE_ENV}.local`
+- `.env.${BUILD_TARGET}.${NODE_ENV}`
+- `.env.${BUILD_TARGET}.local`
+- `.env.${BUILD_TARGET}`
+- `.env.${NODE_ENV}.local`
+- `.env.${NODE_ENV}`
+- `.env.local`
 - `.env`
 
 Note: `local` files without `NODE_ENV` are not respected when running in `NODE_ENV=test`.
