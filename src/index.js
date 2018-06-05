@@ -55,8 +55,6 @@ export function getClientEnvironment() {
       raw[key] = process.env[key]
     })
 
-  console.log("RAW:",raw)
-
   // Stringify all values so we can feed into Webpack DefinePlugin
   const stringified = {
     "process.env": Object.keys(raw).reduce((env, key) => {
@@ -64,8 +62,6 @@ export function getClientEnvironment() {
       return env
     }, {})
   }
-
-  console.log("STRING:",stringified)
 
   return { raw, stringified }
 }
