@@ -47,7 +47,7 @@ dotenvFiles.forEach((dotenvFile) => {
 // injected into the application via DefinePlugin in Webpack configuration.
 const APP_SPECIFIC_ENV = /^APP_/i
 
-export function getClientEnvironment() {
+export function getEnvironment() {
   const raw = {}
   Object.keys(process.env)
     .filter((key) => APP_SPECIFIC_ENV.test(key))
@@ -56,12 +56,11 @@ export function getClientEnvironment() {
     })
 
   // Stringify all values so we can feed into Webpack DefinePlugin
-  const stringified = {
-    "process.env": Object.keys(raw).reduce((env, key) => {
-      env[key] = JSON.stringify(raw[key])
-      return env
-    }, {})
-  }
+  const stringified = {}
+  const webpack = { "process.env": stringified }
+  Object.keys(raw).forEach((key) => {
+    stringified[key] = JSON.stringify(raw[key])
+  })
 
-  return { raw, stringified }
+  return { raw, stringified, webpack }
 }

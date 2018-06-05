@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ignores non app-specific settings 1`] = `
+Object {
+  "APP_TEST_PATH": "one/two/three.js",
+}
+`;
+
+exports[`Ignores non app-specific settings 2`] = `
+Object {
+  "APP_TEST_PATH": "\\"one/two/three.js\\"",
+}
+`;
+
+exports[`Ignores non app-specific settings 3`] = `
+Object {
+  "process.env": Object {
+    "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  },
+}
+`;
+
+exports[`Supports manually defined envs 1`] = `
+Object {
+  "APP_DATA": "yellow",
+  "APP_TEST_PATH": "one/two/three.js",
+}
+`;
+
+exports[`Supports manually defined envs 2`] = `
+Object {
+  "APP_DATA": "\\"yellow\\"",
+  "APP_TEST_PATH": "\\"one/two/three.js\\"",
+}
+`;
+
+exports[`Supports manually defined envs 3`] = `
+Object {
+  "process.env": Object {
+    "APP_DATA": "\\"yellow\\"",
+    "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  },
+}
+`;
