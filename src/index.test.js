@@ -18,5 +18,5 @@ test("Supports manually defined envs", () => {
   expect(raw).toMatchSnapshot()
   expect(stringified).toMatchSnapshot()
   expect(webpack).toMatchSnapshot()
-  process.env.APP_DATA = ""
+  delete process.env.APP_DATA
 })
