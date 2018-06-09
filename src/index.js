@@ -63,6 +63,9 @@ export function getEnvironment() {
     raw.BUILD_TARGET = BUILD_TARGET
   }
 
+  // Add hint about root folder
+  raw.APP_ROOT = appRoot.get()
+
   // Stringify all values so we can feed into Webpack DefinePlugin
   const stringified = {}
   const webpack = { "process.env": stringified }

@@ -20,6 +20,7 @@ Universal DotEnv - A Robust Environment Configuration for Universal Applications
 ## Features
 
 - Supports loading `.env` files with overriding between different `NODE_ENV` settings and `BUILD_TARGET` configurations.
+- Automatically adds a `APP_ROOT` which points to the absolute root folder.
 - Serializes all `APP_` prefixed environment variables for usage as `raw`, `stringified` or `webpack` (for `DefinePlugin`)
 - Supports variable expansion between different settings.
 - Allows local overrides using files which use a ".local" postfix.
@@ -27,9 +28,7 @@ Universal DotEnv - A Robust Environment Configuration for Universal Applications
 
 ## All Strings
 
-It's always a good concept to keep in mind that environment variables
-are always strings. Even if you define `true` or numbers like `100` they are
-still send over as strings. See also: https://github.com/motdotla/dotenv/issues/51
+It is important to remember that all environment variables are always stored as strings. Even numbers and booleans. The casting to other types must therefore take place in the application code. See also: https://github.com/motdotla/dotenv/issues/51
 
 
 ## Variables
