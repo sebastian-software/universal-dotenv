@@ -21,6 +21,7 @@ Universal DotEnv - A Robust Environment Configuration for Universal Applications
 
 - Supports loading `.env` files with overriding between different `NODE_ENV` settings and `BUILD_TARGET` configurations.
 - Automatically adds a `APP_ROOT` which points to the absolute root folder.
+- Also adds `APP_SOURCE` which points to the source folder.
 - Serializes all `APP_` prefixed environment variables for usage as `raw`, `stringified` or `webpack` (for `DefinePlugin`)
 - Supports variable expansion between different settings.
 - Allows local overrides using files which use a ".local" postfix.
@@ -35,6 +36,8 @@ It is important to remember that all environment variables are always stored as 
 
 - `NODE_ENV`: Typically either `production`, `development` or `test`
 - `BUILD_TARGET`: Either `client` or `server`
+- `APP_ROOT`: Points to the root folder of the application (absolute filesystem path)
+- `APP_SOURCE`: Points to the source folder. If `src` exists this is being used. Otherwise the assumption is that it's identical to the `APP_ROOT`.
 
 
 ## File Priority

@@ -66,6 +66,9 @@ export function getEnvironment() {
   // Add hint about root folder
   raw.APP_ROOT = appRoot.get()
 
+  const sourceFolder = path.join(raw.APP_ROOT, "src")
+  raw.APP_SOURCE = fs.existsSync(sourceFolder) ? sourceFolder : raw.APP_ROOT
+
   // Stringify all values so we can feed into Webpack DefinePlugin
   const stringified = {}
   const webpack = { "process.env": stringified }

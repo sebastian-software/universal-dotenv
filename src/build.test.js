@@ -1,7 +1,8 @@
 process.env.BUILD_TARGET = "client"
 
 const snapshotOpts = {
-  APP_ROOT: expect.any(String)
+  APP_ROOT: expect.any(String),
+  APP_SOURCE: expect.any(String)
 }
 
 /* eslint-disable import/no-commonjs */

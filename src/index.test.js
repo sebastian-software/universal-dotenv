@@ -1,7 +1,8 @@
 import { getEnvironment } from "."
 
 const snapshotOpts = {
-  APP_ROOT: expect.any(String)
+  APP_ROOT: expect.any(String),
+  APP_SOURCE: expect.any(String)
 }
 
 test("Sets up process.env", () => {
@@ -33,4 +34,9 @@ test("Exports NODE_ENV", () => {
 test("Exports APP_ROOT", () => {
   const { raw } = getEnvironment()
   expect(raw.APP_ROOT).toMatch(/universal-dotenv$/)
+})
+
+test("Exports APP_SOURCE", () => {
+  const { raw } = getEnvironment()
+  expect(raw.APP_SOURCE).toMatch(/universal-dotenv[\\/]src$/)
 })
