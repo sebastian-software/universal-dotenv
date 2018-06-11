@@ -44,6 +44,15 @@ dotenvFiles.forEach((dotenvFile) => {
   }
 })
 
+if (process.env.APP_ROOT == null) {
+  process.env.APP_ROOT = appRoot.get()
+}
+
+if (process.env.APP_SOURCE == null) {
+  const sourceFolder = path.join(process.env.APP_ROOT, "src")
+  process.env.APP_SOURCE = fs.existsSync(sourceFolder) ? sourceFolder : process.env.APP_ROOT
+}
+
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
 const APP_SPECIFIC_ENV = /^APP_/i
@@ -63,11 +72,9 @@ export function getEnvironment() {
     raw.BUILD_TARGET = BUILD_TARGET
   }
 
-  // Add hint about root folder
-  raw.APP_ROOT = appRoot.get()
-
-  const sourceFolder = path.join(raw.APP_ROOT, "src")
-  raw.APP_SOURCE = fs.existsSync(sourceFolder) ? sourceFolder : raw.APP_ROOT
+  // Add hint about root and source folders
+  raw.APP_ROOT = process.env.APP_ROOT
+  raw.APP_SOURCE = process.env.APP_SOURCE
 
   // Stringify all values so we can feed into Webpack DefinePlugin
   const stringified = {}
