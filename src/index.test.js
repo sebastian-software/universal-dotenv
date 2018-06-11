@@ -40,3 +40,11 @@ test("Exports APP_SOURCE", () => {
   const { raw } = getEnvironment()
   expect(raw.APP_SOURCE).toMatch(/universal-dotenv[\\/]src$/)
 })
+
+test("Adds APP_ROOT to process.env", () => {
+  expect(process.env.APP_ROOT).toBeDefined()
+})
+
+test("Adds APP_SOURCE to process.env", () => {
+  expect(process.env.APP_SOURCE).toBeDefined()
+})
