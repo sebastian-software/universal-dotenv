@@ -47,10 +47,10 @@
     "*.js": "eslint"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "babel-preset-edge": "^4.3.1",
+    "@babel/core": "^7.0.0-beta.51",
+    "babel-preset-edge": "^4.4.1",
     "eslint": "^4.19.1",
-    "eslint-config-readable": "^1.13.4",
+    "eslint-config-readable": "^1.14.0",
     "flow-bin": "^0.74.0",
     "husky": "^0.14.3",
     "jest": "^23.1.0",
