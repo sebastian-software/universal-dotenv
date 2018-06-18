@@ -4,12 +4,17 @@ import appRoot from "app-root-dir"
 
 const dotEnvBase = path.join(appRoot.get(), ".env")
 
-const NODE_ENV = process.env.NODE_ENV
-if (!NODE_ENV) {
-  throw new Error(
-    "The NODE_ENV [development|production] environment variable is required but was not specified."
-  )
+if (!process.env.NODE_ENV) {
+  // Default to development as most solutions seems to implement.
+  // By explicitely setting it if not configured we are able to pass it
+  // to e.g. Webpack for compilation
+  process.env.NODE_ENV = "development"
 }
+
+// Cache Node environment at load time. We have to do it to make
+// sure that the serialization, which might happen later, is in sync
+// with the parsing of the conditional NODE_ENV files now.
+const NODE_ENV = process.env.NODE_ENV
 
 // Either "client" or "server"
 const BUILD_TARGET = process.env.BUILD_TARGET

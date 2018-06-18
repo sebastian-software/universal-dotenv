@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Defaults to development for NODE_ENV 1`] = `
+Object {
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "APP_TEST_OVERRIDE": "original",
+  "APP_TEST_PATH": "one/two/three.js",
+  "NODE_ENV": "development",
+}
+`;
+
+exports[`Defaults to development for NODE_ENV 2`] = `
+Object {
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "APP_TEST_OVERRIDE": "\\"original\\"",
+  "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  "NODE_ENV": "\\"development\\"",
+}
+`;
