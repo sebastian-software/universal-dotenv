@@ -47,8 +47,8 @@
     "*.js": "eslint"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.51",
     "babel-preset-edge": "^4.4.1",
+    "@babel/runtime": "^7.0.0-beta.51",
     "eslint": "^4.19.1",
     "eslint-config-readable": "^1.14.0",
     "flow-bin": "^0.74.0",
@@ -63,5 +63,8 @@
     "app-root-dir": "^1.0.2",
     "dotenv": "^6.0.0",
     "dotenv-expand": "^4.2.0"
+  },
+  "peerDependencies": {
+    "@babel/runtime": "*"
   }
 }
