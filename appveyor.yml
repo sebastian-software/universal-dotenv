@@ -22,6 +22,7 @@ install:
   - ps: Install-Product node $env:nodejs_version $env:platform
   - npm -g install npm
   - set PATH=%APPDATA%\npm;%PATH%
+  - npm --version
   - npm ci
 
 test_script:
