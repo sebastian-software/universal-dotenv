@@ -47,6 +47,8 @@
     "*.js": "eslint"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.52",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-preset-edge": "^4.8.1",
     "eslint": "^5.0.1",
     "eslint-config-readable": "^2.1.3",
