@@ -6,7 +6,7 @@ node_js:
 - 10
 
 install:
-  - npm update -g npm
+  - npm install --global npm
   - npm --version
   - npm ci
 
