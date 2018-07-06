@@ -20,7 +20,7 @@ deploy: off
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
-  - npm -g install npm
+  - npm update -g npm
   - set PATH=%APPDATA%\npm;%PATH%
   - npm --version
   - npm ci
