@@ -46,6 +46,9 @@
   "lint-staged": {
     "*.js": "eslint"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.55",
     "babel-core": "^7.0.0-bridge.0",
