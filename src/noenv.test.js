@@ -1,4 +1,3 @@
-
 // Clear pre-existing NODE_ENV variable
 delete process.env.NODE_ENV
 
