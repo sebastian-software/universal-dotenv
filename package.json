@@ -58,9 +58,9 @@
     "eslint-config-readable": "^2.1.4",
     "flow-bin": "^0.78.0",
     "husky": "^0.14.3",
-    "jest": "^23.4.2",
-    "lint-staged": "^7.2.0",
-    "preppy": "^4.3.1",
+    "jest": "^23.5.0",
+    "lint-staged": "^7.2.2",
+    "preppy": "^4.3.2",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2"
   },
