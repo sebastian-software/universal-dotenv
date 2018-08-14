@@ -4,13 +4,6 @@ import appRoot from "app-root-dir"
 
 const dotEnvBase = path.join(appRoot.get(), ".env")
 
-if (!process.env.NODE_ENV) {
-  // Default to development as most solutions seems to implement.
-  // By explicitely setting it if not configured we are able to pass it
-  // to e.g. Webpack for compilation
-  process.env.NODE_ENV = "development"
-}
-
 // Cache Node environment at load time. We have to do it to make
 // sure that the serialization, which might happen later, is in sync
 // with the parsing of the conditional NODE_ENV files now.
@@ -24,12 +17,12 @@ const BUILD_TARGET = process.env.BUILD_TARGET
 // since normally you expect tests to produce the same
 // results for everyone
 const dotenvFiles = [
-  BUILD_TARGET && `${dotEnvBase}.${BUILD_TARGET}.${NODE_ENV}.local`,
-  BUILD_TARGET && `${dotEnvBase}.${BUILD_TARGET}.${NODE_ENV}`,
+  BUILD_TARGET && NODE_ENV && `${dotEnvBase}.${BUILD_TARGET}.${NODE_ENV}.local`,
+  BUILD_TARGET && NODE_ENV && `${dotEnvBase}.${BUILD_TARGET}.${NODE_ENV}`,
   BUILD_TARGET && NODE_ENV !== "test" && `${dotEnvBase}.${BUILD_TARGET}.local`,
   BUILD_TARGET && `${dotEnvBase}.${BUILD_TARGET}`,
-  `${dotEnvBase}.${NODE_ENV}.local`,
-  `${dotEnvBase}.${NODE_ENV}`,
+  NODE_ENV && `${dotEnvBase}.${NODE_ENV}.local`,
+  NODE_ENV && `${dotEnvBase}.${NODE_ENV}`,
   NODE_ENV !== "test" && `${dotEnvBase}.local`,
   dotEnvBase
 ].filter(Boolean)
@@ -71,7 +64,7 @@ export function getEnvironment() {
     })
 
   // Add core settings to raw data - which is not prefixed at all
-  raw.NODE_ENV = NODE_ENV
+  raw.NODE_ENV = NODE_ENV || "development"
 
   if (BUILD_TARGET) {
     raw.BUILD_TARGET = BUILD_TARGET
