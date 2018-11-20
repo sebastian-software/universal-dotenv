@@ -61,7 +61,7 @@ Note: `local` files without `NODE_ENV` are not respected when running in `NODE_E
 All loading features are enabled by importing the core module itself:
 
 ```js
-import "dotenv-universal"
+import "universal-dotenv"
 ```
 
 After this you can access all environment settings you have defined in one of your `.env` files.
@@ -76,7 +76,7 @@ console.log(process.env.APP_MY_ENV)
 The module offers access to all app specific environment settings which should be prefixed with `APP_` e.g. `APP_TITLE = "My App"`.
 
 ```js
-import { getEnvironment } from "dotenv-universal"
+import { getEnvironment } from "universal-dotenv"
 
 // This also loads all environment specific settings into `process.env`
 
@@ -89,6 +89,16 @@ Return values:
 - stringified: Plain object but with JSON stringified values
 - webpack: For usage with [Webpacks Define Plugin](https://webpack.js.org/plugins/define-plugin/)
 
+Webpack Usage:
+
+```js
+import { getEnvironment } from "universal-dotenv"
+const { webpack } = getEnvironment()
+
+...
+
+plugins.push(new webpack.DefinePlugin(webpack))
+```
 
 
 ## License
