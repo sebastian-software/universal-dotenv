@@ -10,7 +10,6 @@
     "format": "prettier --ignore-path .gitignore --write '**/*.js' && npm run fix",
     "test": "jest",
     "prepare": "rimraf lib && preppy",
-    "precommit": "lint-staged",
     "release": "git push && release-it --github.release --npm.publish --non-interactive",
     "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
     "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
@@ -69,5 +68,10 @@
     "core-js": "^2.6.1",
     "dotenv": "^6.2.0",
     "dotenv-expand": "^4.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
