@@ -60,7 +60,7 @@ if (process.env.APP_SOURCE == null) {
     process.env.APP_ROOT
 }
 
-// Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
+// Grab NODE_ENV and APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
 const APP_SPECIFIC_ENV = /^APP_/i
 
