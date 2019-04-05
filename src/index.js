@@ -43,12 +43,21 @@ dotenvFiles.forEach((dotenvFile) => {
 })
 
 if (process.env.APP_ROOT == null) {
-  process.env.APP_ROOT = appRoot.get()
+  const detectedRoot = appRoot.get()
+  try {
+    process.env.APP_ROOT = detectedRoot
+  } catch (error) {
+    throw new Error(
+      "Universal-DotEnv requires a writable process.env! Please make sure that this code is not transpiled with Webpack."
+    )
+  }
 }
 
 if (process.env.APP_SOURCE == null) {
   const sourceFolder = path.join(process.env.APP_ROOT, "src")
-  process.env.APP_SOURCE = fs.existsSync(sourceFolder) ? sourceFolder : process.env.APP_ROOT
+  process.env.APP_SOURCE = fs.existsSync(sourceFolder) ?
+    sourceFolder :
+    process.env.APP_ROOT
 }
 
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
