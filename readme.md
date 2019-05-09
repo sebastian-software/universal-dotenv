@@ -19,7 +19,7 @@ This solution is heavily inspired by the approach chosen by [Create React App](h
 
 ## Features
 
-- Supports loading `.env` files with overriding between different `NODE_ENV` settings and `BUILD_TARGET` configurations.
+- Supports loading `.env` files with overriding between different `NODE_ENV` settings and `ENV_NAME` configurations.
 - Automatically adds a `APP_ROOT` which points to the absolute root folder.
 - Also adds `APP_SOURCE` which points to the source folder.
 - Serializes all `APP_` prefixed environment variables for usage as `raw`, `stringified` or `webpack` (for `DefinePlugin`)
@@ -35,7 +35,7 @@ It is important to remember that all environment variables are always stored as 
 ## Variables
 
 - `NODE_ENV`: Typically either `production`, `development` or `test`
-- `BUILD_TARGET`: Either `client` or `server`
+- `ENV_NAME`: Often used for e.g. `client` or `server`. Can be also something totally custom e.g. `docker`, `staging`, etc.
 - `APP_ROOT`: Points to the root folder of the application (absolute filesystem path)
 - `APP_SOURCE`: Points to the source folder. If `src` exists this is being used. Otherwise the assumption is that it's identical to the `APP_ROOT`.
 
@@ -44,10 +44,10 @@ It is important to remember that all environment variables are always stored as 
 
 Files are being loaded in this order. Values which are already set are never overwritten. Command line environment settings e.g. via [cross-env](https://www.npmjs.com/package/cross-env) always win.
 
-- `.env.${BUILD_TARGET}.${NODE_ENV}.local`
-- `.env.${BUILD_TARGET}.${NODE_ENV}`
-- `.env.${BUILD_TARGET}.local`
-- `.env.${BUILD_TARGET}`
+- `.env.${ENV_NAME}.${NODE_ENV}.local`
+- `.env.${ENV_NAME}.${NODE_ENV}`
+- `.env.${ENV_NAME}.local`
+- `.env.${ENV_NAME}`
 - `.env.${NODE_ENV}.local`
 - `.env.${NODE_ENV}`
 - `.env.local`

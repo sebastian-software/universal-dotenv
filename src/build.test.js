@@ -1,4 +1,4 @@
-process.env.BUILD_TARGET = "client"
+process.env.ENV_NAME = "client"
 
 const snapshotOpts = {
   APP_ROOT: expect.any(String),
@@ -9,14 +9,14 @@ const snapshotOpts = {
 // We can't use ESM when relying on the fact the the env from the top is correctly respected.
 const api = require(".")
 
-test("Serializes BUILD_TARGET", () => {
+test("Serializes ENV_NAME", () => {
   const { raw, stringified, webpack } = api.getEnvironment()
   expect(raw).toMatchSnapshot(snapshotOpts)
   expect(stringified).toMatchSnapshot(snapshotOpts)
   expect(webpack).toBeDefined()
 })
 
-test("Exports BUILD_TARGET", () => {
+test("Exports ENV_NAME", () => {
   const { raw } = api.getEnvironment()
-  expect(raw.BUILD_TARGET).toBe("client")
+  expect(raw.ENV_NAME).toBe("client")
 })

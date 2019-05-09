@@ -10,17 +10,17 @@ const dotEnvBase = path.join(appRoot.get(), ".env")
 const NODE_ENV = process.env.NODE_ENV
 
 // Either "client" or "server"
-const BUILD_TARGET = process.env.BUILD_TARGET
+const ENV_NAME = process.env.ENV_NAME
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
 // Don't include `.env.local` for `test` environment
 // since normally you expect tests to produce the same
 // results for everyone
 const dotenvFiles = [
-  BUILD_TARGET && NODE_ENV && `${dotEnvBase}.${BUILD_TARGET}.${NODE_ENV}.local`,
-  BUILD_TARGET && NODE_ENV && `${dotEnvBase}.${BUILD_TARGET}.${NODE_ENV}`,
-  BUILD_TARGET && NODE_ENV !== "test" && `${dotEnvBase}.${BUILD_TARGET}.local`,
-  BUILD_TARGET && `${dotEnvBase}.${BUILD_TARGET}`,
+  ENV_NAME && NODE_ENV && `${dotEnvBase}.${ENV_NAME}.${NODE_ENV}.local`,
+  ENV_NAME && NODE_ENV && `${dotEnvBase}.${ENV_NAME}.${NODE_ENV}`,
+  ENV_NAME && NODE_ENV !== "test" && `${dotEnvBase}.${ENV_NAME}.local`,
+  ENV_NAME && `${dotEnvBase}.${ENV_NAME}`,
   NODE_ENV && `${dotEnvBase}.${NODE_ENV}.local`,
   NODE_ENV && `${dotEnvBase}.${NODE_ENV}`,
   NODE_ENV !== "test" && `${dotEnvBase}.local`,
@@ -75,8 +75,8 @@ export function getEnvironment() {
   // Add core settings to raw data - which is not prefixed at all
   raw.NODE_ENV = NODE_ENV || "development"
 
-  if (BUILD_TARGET) {
-    raw.BUILD_TARGET = BUILD_TARGET
+  if (ENV_NAME) {
+    raw.ENV_NAME = ENV_NAME
   }
 
   // Add hint about root and source folders
