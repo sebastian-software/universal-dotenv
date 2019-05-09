@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Serializes ENV_NAME 1`] = `
+exports[`Serializes ENV_CONTEXT 1`] = `
 Object {
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_IS_CLIENT": "true",
   "APP_TEST_OVERRIDE": "overridden",
   "APP_TEST_PATH": "one/two/three.js",
-  "ENV_NAME": "client",
+  "ENV_CONTEXT": "client",
   "NODE_ENV": "test",
 }
 `;
 
-exports[`Serializes ENV_NAME 2`] = `
+exports[`Serializes ENV_CONTEXT 2`] = `
 Object {
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_IS_CLIENT": "\\"true\\"",
   "APP_TEST_OVERRIDE": "\\"overridden\\"",
   "APP_TEST_PATH": "\\"one/two/three.js\\"",
-  "ENV_NAME": "\\"client\\"",
+  "ENV_CONTEXT": "\\"client\\"",
   "NODE_ENV": "\\"test\\"",
 }
 `;
