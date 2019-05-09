@@ -15,7 +15,7 @@
 
 Universal DotEnv - A Robust Environment Configuration for Universal Applications.
 
-This solution is heavily inspired by the approach chosen by [Create React App](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#what-other-env-files-can-be-used) and made available for general usage.
+This solution is heavily inspired by the approach chosen by [Create React App](https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables#adding-development-environment-variables-in-env) and made available for general usage.
 
 ## Features
 
