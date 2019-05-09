@@ -9,7 +9,7 @@ const dotEnvBase = path.join(appRoot.get(), ".env")
 // with the parsing of the conditional NODE_ENV files now.
 const NODE_ENV = process.env.NODE_ENV
 
-// Either "client" or "server"
+// Can be use for values like e.g. "client" or "server". Or `docker`. Or `staging`.
 const ENV_CONTEXT = process.env.ENV_CONTEXT
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
