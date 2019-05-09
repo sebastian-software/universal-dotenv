@@ -48,7 +48,8 @@ if (process.env.APP_ROOT == null) {
     process.env.APP_ROOT = detectedRoot
   } catch (error) {
     throw new Error(
-      "Universal-DotEnv requires a writable process.env! Please make sure that this code is not transpiled with Webpack."
+      "Universal-DotEnv requires a writable process.env! " +
+      "Please make sure that this code is not transpiled with Webpack."
     )
   }
 }
