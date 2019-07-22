@@ -61,7 +61,9 @@ Note: `local` files without `NODE_ENV` are not respected when running in `NODE_E
 All loading features are enabled by importing the core module itself:
 
 ```js
-import "universal-dotenv"
+import { init } from "universal-dotenv"
+
+init()
 ```
 
 After this you can access all environment settings you have defined in one of your `.env` files.
