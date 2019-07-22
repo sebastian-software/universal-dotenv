@@ -4,6 +4,9 @@
   "description": "Robust Environment Configuration for Universal Applications.",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
+  "bin": {
+    "unienv": "bin/unienv"
+  },
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint --fix .",
@@ -50,11 +53,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@effective/eslint-config": "^0.7.12",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
     "babel-preset-edge": "^5.3.0",
     "eslint": "^6.1.0",
-    "eslint-config-readable": "^2.3.2",
     "husky": "^3.0.1",
     "jest": "^24.8.0",
     "lint-staged": "^9.2.0",
