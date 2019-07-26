@@ -8,7 +8,7 @@ const snapshotOpts = {
 
 /* eslint-disable import/no-commonjs */
 // We can't use ESM when relying on the fact the the env from the top is correctly respected.
-const api = require(".")
+const api = require("..")
 
 test("Serializes ENV_CONTEXT", () => {
   const { raw, stringified, webpack } = api.getEnvironment()

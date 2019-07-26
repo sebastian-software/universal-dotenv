@@ -2,7 +2,14 @@
 import crossEnv from "cross-env"
 import yargs from "yargs"
 
-function getParameter() {
+interface Parameter {
+  [x: string]: unknown;
+  context: string;
+  verbose: boolean;
+  _: string[];
+  $0: string;
+}
+function getParameter(): Parameter {
   const args = yargs
     .option('context', {
       alias: 'c',
@@ -18,7 +25,7 @@ function getParameter() {
   return args
 }
 
-function executeCommand() {
+function executeCommand(): void {
   const args = getParameter()
   if (args.context) {
     process.env.ENV_CONTEXT = args.context
