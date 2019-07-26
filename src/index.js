@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires, global-require */
 import fs from "fs"
 import path from "path"
+
 import appRoot from "app-root-dir"
 
 const dotEnvBase = path.join(appRoot.get(), ".env")
