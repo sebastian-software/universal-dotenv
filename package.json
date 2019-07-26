@@ -28,7 +28,8 @@
     "env"
   ],
   "files": [
-    "lib/"
+    "lib/",
+    "bin/"
   ],
   "license": "Apache-2.0",
   "author": {
@@ -74,7 +75,8 @@
     "core-js": "^3.1.4",
     "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
-    "dotenv-expand": "^5.1.0"
+    "dotenv-expand": "^5.1.0",
+    "yargs": "^13.3.0"
   },
   "husky": {
     "hooks": {
