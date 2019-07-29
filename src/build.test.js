@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 process.env.ENV_CONTEXT = "client"
 
 const snapshotOpts = {
