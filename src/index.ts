@@ -34,7 +34,7 @@ const dotenvFiles = [
 // that have already been set. Variable expansion is supported in .env files.
 // https://github.com/motdotla/dotenv
 // https://github.com/motdotla/dotenv-expand
-dotenvFiles.forEach((dotenvFile) => {
+dotenvFiles.forEach((dotenvFile): void => {
   if (fs.existsSync(dotenvFile)) {
     require("dotenv-expand")(
       require("dotenv").config({
@@ -67,11 +67,23 @@ if (process.env.APP_SOURCE == null) {
 // injected into the application via DefinePlugin in Webpack configuration.
 const APP_SPECIFIC_ENV = /^APP_/i
 
-export function getEnvironment() {
-  const raw = {}
+export interface EnvMap {
+  [s: string]: string | undefined;
+}
+
+export interface Environment {
+  raw: EnvMap;
+  stringified: EnvMap;
+  webpack: {
+    "process.env": EnvMap;
+  };
+}
+
+export function getEnvironment(): Environment {
+  const raw: EnvMap = {}
   Object.keys(process.env)
-    .filter((key) => APP_SPECIFIC_ENV.test(key))
-    .forEach((key) => {
+    .filter((key): boolean => APP_SPECIFIC_ENV.test(key))
+    .forEach((key): void => {
       raw[key] = process.env[key]
     })
 
@@ -87,9 +99,9 @@ export function getEnvironment() {
   raw.APP_SOURCE = process.env.APP_SOURCE
 
   // Stringify all values so we can feed into Webpack DefinePlugin
-  const stringified = {}
+  const stringified: EnvMap = {}
   const webpack = { "process.env": stringified }
-  Object.keys(raw).forEach((key) => {
+  Object.keys(raw).forEach((key): void => {
     stringified[key] = JSON.stringify(raw[key])
   })
 
