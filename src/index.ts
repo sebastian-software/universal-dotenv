@@ -63,47 +63,57 @@ export function init(): void {
 
   if (process.env.APP_SOURCE == null) {
     const sourceFolder = path.join(process.env.APP_ROOT || "", "src")
-    process.env.APP_SOURCE = fs.existsSync(sourceFolder)
-      ? sourceFolder
-      : process.env.APP_ROOT
+    process.env.APP_SOURCE = fs.existsSync(sourceFolder) ?
+      sourceFolder :
+      process.env.APP_ROOT
   }
 }
 
 type EnvValue = string | boolean | number | undefined
 
 export interface EnvMap {
-  [s: string]: EnvValue
+  [s: string]: EnvValue;
 }
 
 export interface Environment {
-  raw: EnvMap
-  stringified: EnvMap
+  raw: EnvMap;
+  stringified: EnvMap;
   webpack: {
-    "process.env": EnvMap
-  }
+    "process.env": EnvMap;
+  };
 }
 
 function defaultFilterEnv(key: string): boolean {
   return APP_SPECIFIC_ENV.test(key)
 }
 
-const truthy = new Set([ 'y', 'yes', 'true', true ])
-const falsy = new Set([ 'n', 'no', 'false', false ])
+const truthy = new Set([ "y", "yes", "true", true ])
+const falsy = new Set([ "n", "no", "false", false ])
 
-export function getEnvironment(filterEnv = defaultFilterEnv, enableTranslate = true): Environment {
+
+
+export interface GetEnvironmentOptions {
+  filter?: (key: string) => {};
+  translate?: boolean;
+}
+
+export function getEnvironment({
+  filter = defaultFilterEnv,
+  translate = true
+}: GetEnvironmentOptions = {}): Environment {
   const raw: EnvMap = {}
 
   Object.keys(process.env)
-    .filter(filterEnv)
+    .filter(filter)
     .forEach((key): void => {
       let value: EnvValue = process.env[key]
 
-      if (enableTranslate && typeof value === "string") {
+      if (translate && value) {
         if (truthy.has(value)) {
           value = true
         } else if (falsy.has(value)) {
           value = false
-        } else if (value.match(/^[0-9.]+$/)) {
+        } else if (typeof value === "string" && value.match(/^[0-9.]+$/)) {
           value = parseFloat(value)
         }
       }

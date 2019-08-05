@@ -105,7 +105,16 @@ This method also supports custom filtering of the environment data to export usi
 Here you can see the example config for only exporting environment settings where the key starts with string `MYKEY_`.
 
 ```js
-const { raw, stringified, webpack } = getEnvironment((key) => key.startsWith("MYKEY_"))
+const { raw, stringified, webpack } = getEnvironment({
+  filter: (key) => key.startsWith("MYKEY_")
+})
+```
+
+By default the `getEnvironment()` method translates strings which look like numbers or booleans into their native type representation. To disable this behavior pass over `false` for `enableTranslation` like:
+
+
+```js
+const { raw, stringified, webpack } = getEnvironment({ translate: false })
 ```
 
 

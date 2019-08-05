@@ -5,11 +5,11 @@ import yargs from "yargs"
 import { init } from "./index"
 
 interface Parameter {
-  [x: string]: unknown
-  context: string
-  verbose: boolean
-  _: string[]
-  $0: string
+  [x: string]: unknown;
+  context: string;
+  verbose: boolean;
+  _: string[];
+  $0: string;
 }
 function getParameter(): Parameter {
   const args = yargs

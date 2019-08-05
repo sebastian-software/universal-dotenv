@@ -20,6 +20,28 @@ Object {
 }
 `;
 
+exports[`Prevents translation of booleans when disabled 1`] = `
+Object {
+  "APP_DEBUG": "true",
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "APP_TEST_OVERRIDE": "overridden",
+  "APP_TEST_PATH": "one/two/three.js",
+  "NODE_ENV": "test",
+}
+`;
+
+exports[`Prevents translation of booleans when disabled 2`] = `
+Object {
+  "APP_DEBUG": "\\"true\\"",
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "APP_TEST_OVERRIDE": "\\"overridden\\"",
+  "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  "NODE_ENV": "\\"test\\"",
+}
+`;
+
 exports[`Supports filtering envs to export 1`] = `
 Object {
   "APP_DATA_JUSTME": "blue",

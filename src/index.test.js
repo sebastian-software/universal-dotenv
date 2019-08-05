@@ -31,7 +31,9 @@ test("Supports manually defined envs", () => {
 test("Supports filtering envs to export", () => {
   process.env.APP_DATA = "yellow"
   process.env.APP_DATA_JUSTME = "blue"
-  const { raw, stringified, webpack } = getEnvironment((key) => key === "APP_DATA_JUSTME")
+  const { raw, stringified, webpack } = getEnvironment({
+    filter: (key) => key === "APP_DATA_JUSTME"
+  })
   expect(raw).toMatchSnapshot(snapshotOpts)
   expect(stringified).toMatchSnapshot(snapshotOpts)
   expect(webpack).toBeDefined()
@@ -51,6 +53,15 @@ test("Supports translation of numbers", () => {
 test("Supports translation of booleans", () => {
   process.env.APP_DEBUG = true
   const { raw, stringified, webpack } = getEnvironment()
+  expect(raw).toMatchSnapshot(snapshotOpts)
+  expect(stringified).toMatchSnapshot(snapshotOpts)
+  expect(webpack).toBeDefined()
+  delete process.env.APP_DEBUG
+})
+
+test("Prevents translation of booleans when disabled", () => {
+  process.env.APP_DEBUG = true
+  const { raw, stringified, webpack } = getEnvironment({ translate: false })
   expect(raw).toMatchSnapshot(snapshotOpts)
   expect(stringified).toMatchSnapshot(snapshotOpts)
   expect(webpack).toBeDefined()
