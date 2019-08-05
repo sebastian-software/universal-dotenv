@@ -2,25 +2,26 @@
 import crossEnv from "cross-env"
 import yargs from "yargs"
 
+import { init } from "./index"
+
 interface Parameter {
-  [x: string]: unknown;
-  context: string;
-  verbose: boolean;
-  _: string[];
-  $0: string;
+  [x: string]: unknown
+  context: string
+  verbose: boolean
+  _: string[]
+  $0: string
 }
 function getParameter(): Parameter {
   const args = yargs
-    .option('context', {
-      alias: 'c',
+    .option("context", {
+      alias: "c",
       type: "string"
     })
-    .option('verbose', {
-      alias: 'v',
+    .option("verbose", {
+      alias: "v",
       default: false,
       type: "boolean"
-    })
-    .argv
+    }).argv
 
   return args
 }
@@ -35,7 +36,7 @@ function executeCommand(): void {
     process.stderr.write("Load .env files...\n")
   }
   // Executed in bin folder, so require top level
-  require("..")
+  init()
 
   if (args.verbose) {
     process.stderr.write(`Execute "${args._.join(" ")}"...\n`)

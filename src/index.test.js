@@ -1,4 +1,6 @@
-import { getEnvironment } from "."
+import { getEnvironment, init } from "."
+
+init()
 
 const snapshotOpts = {
   APP_ROOT: expect.any(String),
