@@ -59,3 +59,47 @@ Object {
   "NODE_ENV": "\\"test\\"",
 }
 `;
+
+exports[`Supports translation of booleans 1`] = `
+Object {
+  "APP_DEBUG": true,
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "APP_TEST_OVERRIDE": "overridden",
+  "APP_TEST_PATH": "one/two/three.js",
+  "NODE_ENV": "test",
+}
+`;
+
+exports[`Supports translation of booleans 2`] = `
+Object {
+  "APP_DEBUG": "true",
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "APP_TEST_OVERRIDE": "\\"overridden\\"",
+  "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  "NODE_ENV": "\\"test\\"",
+}
+`;
+
+exports[`Supports translation of numbers 1`] = `
+Object {
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "APP_TEST_OVERRIDE": "overridden",
+  "APP_TEST_PATH": "one/two/three.js",
+  "APP_VERSION": 1.6,
+  "NODE_ENV": "test",
+}
+`;
+
+exports[`Supports translation of numbers 2`] = `
+Object {
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "APP_TEST_OVERRIDE": "\\"overridden\\"",
+  "APP_TEST_PATH": "\\"one/two/three.js\\"",
+  "APP_VERSION": "1.6",
+  "NODE_ENV": "\\"test\\"",
+}
+`;

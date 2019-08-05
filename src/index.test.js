@@ -36,6 +36,25 @@ test("Supports filtering envs to export", () => {
   expect(stringified).toMatchSnapshot(snapshotOpts)
   expect(webpack).toBeDefined()
   delete process.env.APP_DATA
+  delete process.env.APP_DATA_JUSTME
+})
+
+test("Supports translation of numbers", () => {
+  process.env.APP_VERSION = 1.6
+  const { raw, stringified, webpack } = getEnvironment()
+  expect(raw).toMatchSnapshot(snapshotOpts)
+  expect(stringified).toMatchSnapshot(snapshotOpts)
+  expect(webpack).toBeDefined()
+  delete process.env.APP_VERSION
+})
+
+test("Supports translation of booleans", () => {
+  process.env.APP_DEBUG = true
+  const { raw, stringified, webpack } = getEnvironment()
+  expect(raw).toMatchSnapshot(snapshotOpts)
+  expect(stringified).toMatchSnapshot(snapshotOpts)
+  expect(webpack).toBeDefined()
+  delete process.env.APP_DEBUG
 })
 
 test("Exports NODE_ENV", () => {

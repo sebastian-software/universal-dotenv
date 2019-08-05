@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires, global-require */
+/* eslint-disable @typescript-eslint/no-var-requires, global-require, complexity */
 import fs from "fs"
 import path from "path"
 
@@ -10,7 +10,7 @@ const dotEnvBase = path.join(appRoot.get(), ".env")
 // injected into the application via DefinePlugin in Webpack configuration.
 const APP_SPECIFIC_ENV = /^APP_/i
 
-export function init() {
+export function init(): void {
   // Cache Node environment at load time. We have to do it to make
   // sure that the serialization, which might happen later, is in sync
   // with the parsing of the conditional NODE_ENV files now.
@@ -39,7 +39,7 @@ export function init() {
   // that have already been set. Variable expansion is supported in .env files.
   // https://github.com/motdotla/dotenv
   // https://github.com/motdotla/dotenv-expand
-  dotenvFiles.forEach((dotenvFile) => {
+  dotenvFiles.forEach((dotenvFile): void => {
     if (fs.existsSync(dotenvFile)) {
       require("dotenv-expand")(
         require("dotenv").config({
@@ -69,8 +69,10 @@ export function init() {
   }
 }
 
+type EnvValue = string | boolean | number | undefined
+
 export interface EnvMap {
-  [s: string]: string | undefined
+  [s: string]: EnvValue
 }
 
 export interface Environment {
@@ -85,13 +87,26 @@ function defaultFilterEnv(key: string): boolean {
   return APP_SPECIFIC_ENV.test(key)
 }
 
-export function getEnvironment(filterEnv = defaultFilterEnv): Environment {
+const truthy = new Set([ 'y', 'yes', 'true', true ])
+const falsy = new Set([ 'n', 'no', 'false', false ])
+
+export function getEnvironment(filterEnv = defaultFilterEnv, enableTranslate = true): Environment {
   const raw: EnvMap = {}
 
   Object.keys(process.env)
     .filter(filterEnv)
-    .forEach((key) => {
-      let value = process.env[key]
+    .forEach((key): void => {
+      let value: EnvValue = process.env[key]
+
+      if (enableTranslate && typeof value === "string") {
+        if (truthy.has(value)) {
+          value = true
+        } else if (falsy.has(value)) {
+          value = false
+        } else if (value.match(/^[0-9.]+$/)) {
+          value = parseFloat(value)
+        }
+      }
 
       raw[key] = value
     })
