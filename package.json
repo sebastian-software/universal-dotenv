@@ -9,10 +9,12 @@
     "unienv": "bin/unienv"
   },
   "scripts": {
-    "lint": "eslint .",
-    "fix": "eslint --fix .",
-    "format": "prettier --ignore-path .gitignore --write '**/*.js' && npm run fix",
+    "fix": "eslint --fix '**/*.{ts,tsx,js,jsx}'",
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,md}' && npm run fix",
     "test": "jest",
+    "lint": "npm run lint:code && npm run lint:types",
+    "lint:code": "eslint '**/*.{ts,tsx,js,jsx}'",
+    "lint:types": "tsc --noEmit",
     "pretest": "npm run prepare",
     "prepare": "rimraf lib && preppy",
     "release": "git push && release-it --github.release --npm.publish --non-interactive",
@@ -57,6 +59,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@effective/eslint-config": "^0.7.12",
+    "@types/app-root-dir": "^0.1.0",
     "@types/yargs": "^13.0.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
