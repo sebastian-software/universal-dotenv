@@ -81,11 +81,15 @@ export interface Environment {
   }
 }
 
-export function getEnvironment(): Environment {
+function defaultFilterEnv(key: string): boolean {
+  return APP_SPECIFIC_ENV.test(key)
+}
+
+export function getEnvironment(filterEnv = defaultFilterEnv): Environment {
   const raw: EnvMap = {}
 
   Object.keys(process.env)
-    .filter((key) => APP_SPECIFIC_ENV.test(key))
+    .filter(filterEnv)
     .forEach((key) => {
       let value = process.env[key]
 

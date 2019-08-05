@@ -100,6 +100,14 @@ const { webpack } = getEnvironment()
 plugins.push(new webpack.DefinePlugin(webpack))
 ```
 
+This method also supports custom filtering of the environment data to export using a key-based filter method.
+
+Here you can see the example config for only exporting environment settings where the key starts with string `MYKEY_`.
+
+```js
+const { raw, stringified, webpack } = getEnvironment((key) => key.startsWith("MYKEY_"))
+```
+
 
 ## License
 

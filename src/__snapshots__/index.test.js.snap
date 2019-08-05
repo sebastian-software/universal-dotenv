@@ -20,6 +20,24 @@ Object {
 }
 `;
 
+exports[`Supports filtering envs to export 1`] = `
+Object {
+  "APP_DATA_JUSTME": "blue",
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "NODE_ENV": "test",
+}
+`;
+
+exports[`Supports filtering envs to export 2`] = `
+Object {
+  "APP_DATA_JUSTME": "\\"blue\\"",
+  "APP_ROOT": Any<String>,
+  "APP_SOURCE": Any<String>,
+  "NODE_ENV": "\\"test\\"",
+}
+`;
+
 exports[`Supports manually defined envs 1`] = `
 Object {
   "APP_DATA": "yellow",

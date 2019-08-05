@@ -28,6 +28,16 @@ test("Supports manually defined envs", () => {
   delete process.env.APP_DATA
 })
 
+test("Supports filtering envs to export", () => {
+  process.env.APP_DATA = "yellow"
+  process.env.APP_DATA_JUSTME = "blue"
+  const { raw, stringified, webpack } = getEnvironment((key) => key === "APP_DATA_JUSTME")
+  expect(raw).toMatchSnapshot(snapshotOpts)
+  expect(stringified).toMatchSnapshot(snapshotOpts)
+  expect(webpack).toBeDefined()
+  delete process.env.APP_DATA
+})
+
 test("Exports NODE_ENV", () => {
   const { raw } = getEnvironment()
   expect(raw.NODE_ENV).toBe("test")
