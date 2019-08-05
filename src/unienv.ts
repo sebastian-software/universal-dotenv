@@ -1,16 +1,14 @@
-/* eslint-disable global-require */
 import crossEnv from "cross-env"
 import yargs from "yargs"
 
 import { init } from "./index"
 
 interface Parameter {
-  [x: string]: unknown;
-  context: string;
-  verbose: boolean;
-  _: string[];
-  $0: string;
+  context?: string
+  verbose?: boolean
+  command: string[]
 }
+
 function getParameter(): Parameter {
   const args = yargs
     .option("context", {
@@ -23,7 +21,13 @@ function getParameter(): Parameter {
       type: "boolean"
     }).argv
 
-  return args
+  const { context, verbose, _ } = args
+
+  return {
+    context,
+    verbose,
+    command: _
+  }
 }
 
 function executeCommand(): void {
@@ -35,13 +39,14 @@ function executeCommand(): void {
   if (args.verbose) {
     process.stderr.write("Load .env files...\n")
   }
-  // Executed in bin folder, so require top level
+
   init()
 
   if (args.verbose) {
-    process.stderr.write(`Execute "${args._.join(" ")}"...\n`)
+    process.stderr.write(`Execute "${args.command.join(" ")}"...\n`)
   }
-  crossEnv(args._)
+
+  crossEnv(args.command)
 }
 
 executeCommand()
