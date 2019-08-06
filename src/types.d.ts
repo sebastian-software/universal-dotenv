@@ -1,1 +1,1 @@
-declare module 'cross-env';
+declare module "cross-env"

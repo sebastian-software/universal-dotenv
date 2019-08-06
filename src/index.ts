@@ -72,15 +72,15 @@ export function init(): void {
 type EnvValue = string | boolean | number | undefined
 
 export interface EnvMap {
-  [s: string]: EnvValue;
+  [s: string]: EnvValue
 }
 
 export interface Environment {
-  raw: EnvMap;
-  stringified: EnvMap;
+  raw: EnvMap
+  stringified: EnvMap
   webpack: {
-    "process.env": EnvMap;
-  };
+    "process.env": EnvMap
+  }
 }
 
 function defaultFilterEnv(key: string): boolean {
@@ -90,11 +90,9 @@ function defaultFilterEnv(key: string): boolean {
 const truthy = new Set([ "y", "yes", "true", true ])
 const falsy = new Set([ "n", "no", "false", false ])
 
-
-
 export interface GetEnvironmentOptions {
-  filter?: (key: string) => {};
-  translate?: boolean;
+  filter?: (key: string) => {}
+  translate?: boolean
 }
 
 export function getEnvironment({

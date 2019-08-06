@@ -19,4 +19,3 @@ test("Defaults to development for NODE_ENV", () => {
   expect(stringified).toMatchSnapshot(snapshotOpts)
   expect(webpack).toBeDefined()
 })
-

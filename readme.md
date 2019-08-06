@@ -5,7 +5,6 @@
 [npm]: https://www.npmjs.com/package/universal-dotenv
 [travis]: https://travis-ci.org/sebastian-software/universal-dotenv
 [appveyor]: https://ci.appveyor.com/project/swernerx/universal-dotenv/branch/master
-
 [sponsor-img]: https://badgen.net/badge/Sponsored%20by/Sebastian%20Software/692446
 [deps-img]: https://badgen.net/david/dep/sebastian-software/universal-dotenv
 [npm-downloads-img]: https://badgen.net/npm/dm/universal-dotenv
@@ -26,11 +25,9 @@ This solution is heavily inspired by the approach chosen by [Create React App](h
 - Supports variable expansion between different settings.
 - Allows local overrides using files which use a ".local" postfix.
 
-
 ## All Strings
 
 It is important to remember that all environment variables are always stored as strings. Even numbers and booleans. The casting to other types must therefore take place in the application code. See also: https://github.com/motdotla/dotenv/issues/51
-
 
 ## Variables
 
@@ -38,7 +35,6 @@ It is important to remember that all environment variables are always stored as 
 - `ENV_CONTEXT`: Often used for e.g. `client` or `server`. Can be also something totally custom e.g. `docker`, `staging`, etc.
 - `APP_ROOT`: Points to the root folder of the application (absolute filesystem path)
 - `APP_SOURCE`: Points to the source folder. If `src` exists this is being used. Otherwise the assumption is that it's identical to the `APP_ROOT`.
-
 
 ## File Priority
 
@@ -55,7 +51,6 @@ Files are being loaded in this order. Values which are already set are never ove
 
 Note: `local` files without `NODE_ENV` are not respected when running in `NODE_ENV=test`.
 
-
 ## Basic Usage
 
 All loading features are enabled by importing the core module itself:
@@ -69,7 +64,6 @@ After this you can access all environment settings you have defined in one of yo
 ```js
 console.log(process.env.APP_MY_ENV)
 ```
-
 
 ## Serialization
 
@@ -112,11 +106,9 @@ const { raw, stringified, webpack } = getEnvironment({
 
 By default the `getEnvironment()` method translates strings which look like numbers or booleans into their native type representation. To disable this behavior pass over `false` for `enableTranslation` like:
 
-
 ```js
 const { raw, stringified, webpack } = getEnvironment({ translate: false })
 ```
-
 
 ## License
 
