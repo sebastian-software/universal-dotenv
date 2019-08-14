@@ -10,7 +10,7 @@ const dotEnvBase = path.join(appRoot.get(), ".env")
 // injected into the application via DefinePlugin in Webpack configuration.
 const APP_SPECIFIC_ENV = /^APP_/i
 
-let isInitExecuted: boolean = false
+let isInitExecuted = false
 
 export function init(): void {
   // Cache Node environment at load time. We have to do it to make
@@ -65,9 +65,9 @@ export function init(): void {
 
   if (process.env.APP_SOURCE == null) {
     const sourceFolder = path.join(process.env.APP_ROOT || "", "src")
-    process.env.APP_SOURCE = fs.existsSync(sourceFolder)
-      ? sourceFolder
-      : process.env.APP_ROOT
+    process.env.APP_SOURCE = fs.existsSync(sourceFolder) ?
+      sourceFolder :
+      process.env.APP_ROOT
   }
 
   isInitExecuted = true
@@ -91,8 +91,8 @@ function defaultFilterEnv(key: string): boolean {
   return APP_SPECIFIC_ENV.test(key)
 }
 
-const truthy = new Set(["y", "yes", "true", true])
-const falsy = new Set(["n", "no", "false", false])
+const truthy = new Set([ "y", "yes", "true", true ])
+const falsy = new Set([ "n", "no", "false", false ])
 
 export interface GetEnvironmentOptions {
   filter?: (key: string) => {}
