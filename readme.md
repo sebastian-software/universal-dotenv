@@ -68,10 +68,10 @@ console.log(process.env.APP_MY_ENV)
 
 ## Automatic loading
 
-If you don't want to control the init process you can also import an automated version:
+If you don't want to control the init process you can also register an automated version:
 
 ```js
-import "universal-dotenv/auto"
+import "universal-dotenv/register"
 ```
 
 This loads all environment settings on import of module.
