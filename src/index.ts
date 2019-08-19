@@ -10,6 +10,8 @@ const dotEnvBase = path.join(appRoot.get(), ".env")
 // injected into the application via DefinePlugin in Webpack configuration.
 const APP_SPECIFIC_ENV = /^APP_/i
 
+let isInitExecuted = false
+
 export function init(): void {
   // Cache Node environment at load time. We have to do it to make
   // sure that the serialization, which might happen later, is in sync
@@ -67,6 +69,8 @@ export function init(): void {
       sourceFolder :
       process.env.APP_ROOT
   }
+
+  isInitExecuted = true
 }
 
 type EnvValue = string | boolean | number | undefined
@@ -100,6 +104,10 @@ export function getEnvironment({
   translate = true
 }: GetEnvironmentOptions = {}): Environment {
   const raw: EnvMap = {}
+
+  if (!isInitExecuted) {
+    init()
+  }
 
   Object.keys(process.env)
     .filter(filter)
