@@ -58,30 +58,30 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@effective/eslint-config": "^1.1.1",
+    "@babel/core": "^7.6.4",
+    "@effective/eslint-config": "^1.1.2",
     "@types/app-root-dir": "^0.1.0",
     "@types/yargs": "^13.0.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.9.0",
     "babel-preset-edge": "^5.5.0",
     "eslint": "^6.5.1",
-    "husky": "^3.0.7",
+    "husky": "^3.0.8",
     "jest": "^24.9.0",
-    "lint-staged": "^9.4.1",
-    "preppy": "^8.3.3",
+    "lint-staged": "^9.4.2",
+    "preppy": "^9.0.0",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.4"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.2",
+    "@babel/runtime": "^7.6.3",
     "app-root-dir": "^1.0.2",
     "core-js": "^3.2.1",
-    "cross-env": "^6.0.0",
+    "cross-env": "^6.0.3",
     "dotenv": "^8.1.0",
     "dotenv-expand": "^5.1.0",
-    "yargs": "^14.0.0"
+    "yargs": "^14.2.0"
   },
   "husky": {
     "hooks": {
