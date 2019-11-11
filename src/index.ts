@@ -16,7 +16,7 @@ export function init(): void {
   // Cache Node environment at load time. We have to do it to make
   // sure that the serialization, which might happen later, is in sync
   // with the parsing of the conditional NODE_ENV files now.
-  const NODE_ENV = process.env.NODE_ENV
+  const NODE_ENV = process.env.NODE_ENV || "development"
 
   // Can be use for values like e.g. "client" or "server". Or `docker`. Or `staging`.
   const ENV_CONTEXT = process.env.ENV_CONTEXT
