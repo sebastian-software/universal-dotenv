@@ -58,30 +58,30 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
-    "@effective/eslint-config": "^1.4.0",
+    "@babel/core": "^7.9.6",
+    "@effective/eslint-config": "^2.6.2",
     "@types/app-root-dir": "^0.1.0",
-    "@types/yargs": "^13.0.3",
+    "@types/yargs": "^15.0.4",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.9.0",
-    "babel-preset-edge": "^5.5.0",
-    "eslint": "^6.7.2",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "lint-staged": "^9.5.0",
-    "preppy": "^9.3.0",
-    "prettier": "^1.19.1",
-    "rimraf": "^3.0.0",
-    "typescript": "^3.7.3"
+    "babel-jest": "^26.0.1",
+    "babel-preset-edge": "^5.5.1",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.2",
+    "preppy": "^10.4.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.7.6",
+    "@babel/runtime": "^7.9.6",
     "app-root-dir": "^1.0.2",
-    "core-js": "^3.5.0",
-    "cross-env": "^6.0.3",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0",
-    "yargs": "^15.0.2"
+    "yargs": "^15.3.1"
   },
   "husky": {
     "hooks": {
