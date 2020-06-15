@@ -80,7 +80,7 @@ test("Exports APP_ROOT", () => {
 
 test("Exports APP_SOURCE", () => {
   const { raw } = getEnvironment()
-  expect(raw.APP_SOURCE).toMatch(/universal-dotenv[\\/]src$/)
+  expect(raw.APP_SOURCE).toMatch(/universal-dotenv[/\\]src$/)
 })
 
 test("Adds APP_ROOT to process.env", () => {

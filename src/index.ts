@@ -8,7 +8,7 @@ const dotEnvBase = path.join(appRoot.get(), ".env")
 
 // Grab NODE_ENV and APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
-const APP_SPECIFIC_ENV = /^APP_/i
+const APP_SPECIFIC_ENV = /^app_/i
 
 let isInitExecuted = false
 
@@ -53,21 +53,22 @@ export function init(): void {
 
   if (process.env.APP_ROOT == null) {
     const detectedRoot = appRoot.get()
+
     try {
       process.env.APP_ROOT = detectedRoot
-    } catch (error) {
+    } catch {
       throw new Error(
-        "Universal-DotEnv requires a writable process.env! " +
-          "Please make sure that this code is not transpiled with Webpack."
+        "Universal-DotEnv requires a writable process.env! "
+          + "Please make sure that this code is not transpiled with Webpack."
       )
     }
   }
 
   if (process.env.APP_SOURCE == null) {
     const sourceFolder = path.join(process.env.APP_ROOT || "", "src")
-    process.env.APP_SOURCE = fs.existsSync(sourceFolder) ?
-      sourceFolder :
-      process.env.APP_ROOT
+    process.env.APP_SOURCE = fs.existsSync(sourceFolder)
+      ? sourceFolder
+      : process.env.APP_ROOT
   }
 
   isInitExecuted = true
@@ -119,7 +120,7 @@ export function getEnvironment({
           value = true
         } else if (falsy.has(value)) {
           value = false
-        } else if (typeof value === "string" && value.match(/^[0-9.]+$/)) {
+        } else if (typeof value === "string" && value.match(/^[\d.]+$/)) {
           value = parseFloat(value)
         }
       }

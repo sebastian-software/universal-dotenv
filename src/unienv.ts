@@ -1,7 +1,7 @@
 import crossEnv from "cross-env"
 import yargs from "yargs"
 
-import { init } from "./index"
+import { init } from "."
 
 interface Parameter {
   context?: string
