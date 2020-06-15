@@ -9,17 +9,16 @@
     "unienv": "bin/unienv"
   },
   "scripts": {
-    "fix": "eslint --fix '**/*.{ts,tsx,js,jsx}'",
-    "format": "prettier --write '**/*.{ts,tsx,js,jsx,md}' && npm run fix",
+    "format": "effective-prettier '**/*.{ts,tsx,js,jsx,md}'",
     "test": "jest",
     "lint": "npm run lint:code && npm run lint:types",
     "lint:code": "eslint '**/*.{ts,tsx,js,jsx}'",
     "lint:types": "tsc --noEmit",
     "pretest": "npm run prepare",
     "prepare": "rimraf lib && preppy",
-    "release": "git push && release-it --github.release --npm.publish --non-interactive",
-    "release:minor": "git push && release-it --github.release --npm.publish --non-interactive --increment minor",
-    "release:major": "git push && release-it --github.release --npm.publish --non-interactive --increment major"
+    "release": "git push && release-it --ci patch",
+    "release:minor": "git push && release-it --ci minor",
+    "release:major": "git push && release-it --ci major"
   },
   "engines": {
     "node": ">=10.0.0",
@@ -71,6 +70,7 @@
     "lint-staged": "^10.2.10",
     "preppy": "^10.5.0",
     "prettier": "^2.0.5",
+    "release-it": "^13.6.3",
     "rimraf": "^3.0.2",
     "typescript": "^3.9.5"
   },
