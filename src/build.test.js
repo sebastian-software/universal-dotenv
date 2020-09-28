@@ -6,6 +6,11 @@ const snapshotOpts = {
   APP_SOURCE: expect.any(String)
 }
 
+const savedProcessEnv = { ...process.env }
+afterAll(() => {
+  process.env = savedProcessEnv
+})
+
 /* eslint-disable import/no-commonjs */
 // We can't use ESM when relying on the fact the the env from the top is correctly respected.
 const api = require("..")

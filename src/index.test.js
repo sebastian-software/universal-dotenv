@@ -1,5 +1,10 @@
 import { getEnvironment, init } from "."
 
+const savedProcessEnv = { ...process.env }
+afterAll(() => {
+  process.env = savedProcessEnv
+})
+
 init()
 
 const snapshotOpts = {
