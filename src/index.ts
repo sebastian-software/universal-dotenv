@@ -14,9 +14,17 @@ const APP_SPECIFIC_ENV = /^app_/i
 let isInitExecuted = false
 
 function flattenAndUnique(keys: string[][]): string[] {
-  const unique = new Set(([] as string[]).concat(...keys))
+  const flatAndUnique: string[] = []
 
-  return [ ...unique ]
+  for (const keys2 of keys) {
+    for (const key of keys2) {
+      if (!flatAndUnique.includes(key)) {
+        flatAndUnique.push(key)
+      }
+    }
+  }
+
+  return flatAndUnique
 }
 
 export function init(): void {
@@ -71,7 +79,7 @@ export function init(): void {
 
   const expandedEnvironment = expandEnvironment(environmentItems)
 
-  for (const [ envKey, envValue ] of Object.entries(expandedEnvironment)) {
+  for (const [envKey, envValue] of Object.entries(expandedEnvironment)) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     process.env[envKey] = envValue
   }
@@ -83,8 +91,8 @@ export function init(): void {
       process.env.APP_ROOT = detectedRoot
     } catch {
       throw new Error(
-        "Universal-DotEnv requires a writable process.env! "
-          + "Please make sure that this code is not transpiled with Webpack."
+        "Universal-DotEnv requires a writable process.env! " +
+          "Please make sure that this code is not transpiled with Webpack."
       )
     }
   }
@@ -117,8 +125,8 @@ function defaultFilterEnv(key: string): boolean {
   return APP_SPECIFIC_ENV.test(key)
 }
 
-const truthy = new Set([ "y", "yes", "true", true ])
-const falsy = new Set([ "n", "no", "false", false ])
+const truthy = new Set(["y", "yes", "true", true])
+const falsy = new Set(["n", "no", "false", false])
 
 export interface GetEnvironmentOptions {
   filter?: (key: string) => {}
