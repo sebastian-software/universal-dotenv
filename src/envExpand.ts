@@ -14,7 +14,7 @@ export function expandSingleValue(
   environment: EnvironmentVariables,
   processEnvironment?: NodeJS.ProcessEnv
 ): string {
-  const matches = envValue.match(/(.?\${?(?:\w+)?}?)/g) || []
+  const matches = envValue && envValue.match(/(.?\${?(?:\w+)?}?)/g) || []
 
   return matches.reduce((prev, match) => {
     const matchParts = (/(.?)\${?(\w+)?}?/g).exec(match)
