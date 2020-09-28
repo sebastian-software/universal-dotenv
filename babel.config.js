@@ -1,9 +1,6 @@
 // babel.config.js
 module.exports = (api) => {
   const isTest = api.env('test')
-  const isDev = api.env('development')
-
-  // You can use isTest to determine what presets and plugins to use.
 
   return {
     presets: [
@@ -13,7 +10,10 @@ module.exports = (api) => {
           modules: isTest ? 'cjs' : false,
           useBuiltIns: 'usage',
           corejs: 3,
-          loose: false
+          loose: false,
+          targets: {
+            node: 10
+          }
         }
       ],
       [
