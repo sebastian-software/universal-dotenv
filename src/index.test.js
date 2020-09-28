@@ -1,4 +1,4 @@
-import { getEnvironment, init } from "."
+import { flattenAndUnique, getEnvironment, init } from "."
 
 const savedProcessEnv = { ...process.env }
 afterAll(() => {
@@ -94,4 +94,16 @@ test("Adds APP_ROOT to process.env", () => {
 
 test("Adds APP_SOURCE to process.env", () => {
   expect(process.env.APP_SOURCE).toBeDefined()
+})
+
+test("flat and unique an string[][]", () => {
+  const value = [
+    ["a", "b", "c"],
+    ["b", "d", "e"],
+    ["a", "d", "e"]
+  ]
+  const expected = ["a", "b", "c", "d", "e"]
+  const result = flattenAndUnique(value)
+
+  expect(result).toEqual(expected)
 })

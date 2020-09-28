@@ -13,18 +13,13 @@ const APP_SPECIFIC_ENV = /^app_/i
 
 let isInitExecuted = false
 
-function flattenAndUnique(keys: string[][]): string[] {
-  const flatAndUnique: string[] = []
+export function flattenAndUnique(keys: string[][]): string[] {
+  const flat = ([] as string[]).concat(...keys)
+  const unique = new Set<string>(flat)
 
-  for (const keys2 of keys) {
-    for (const key of keys2) {
-      if (!flatAndUnique.includes(key)) {
-        flatAndUnique.push(key)
-      }
-    }
-  }
-
-  return flatAndUnique
+  // Don't change Array.from as spread operator is not working here!
+  // eslint-disable-next-line unicorn/prefer-spread
+  return Array.from(unique)
 }
 
 export function init(): void {
