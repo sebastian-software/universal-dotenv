@@ -3,8 +3,9 @@ import fs from "fs"
 import path from "path"
 
 import appRoot from "app-root-dir"
+import { config as dotenvConfig } from "dotenv"
 
-const dotEnvBase = path.join(appRoot.get(), ".env")
+import { EnvironmentVariables, expandEnvironment } from "./envExpand"
 
 // Grab NODE_ENV and APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
@@ -12,7 +13,15 @@ const APP_SPECIFIC_ENV = /^app_/i
 
 let isInitExecuted = false
 
+function flattenAndUnique(keys: string[][]): string[] {
+  const unique = new Set(([] as string[]).concat(...keys))
+
+  return Array.from(unique)
+}
+
 export function init(): void {
+  const dotEnvBase = path.join(appRoot.get(), ".env")
+
   // Cache Node environment at load time. We have to do it to make
   // sure that the serialization, which might happen later, is in sync
   // with the parsing of the conditional NODE_ENV files now.
@@ -34,22 +43,38 @@ export function init(): void {
     NODE_ENV && `${dotEnvBase}.${NODE_ENV}`,
     NODE_ENV !== "test" && `${dotEnvBase}.local`,
     dotEnvBase
-  ].filter(Boolean) as string[]
+  ]
+    .filter(Boolean)
+    .filter(fs.existsSync)
 
+  const resultKeys: string[][] = []
   // Load environment variables from .env* files. Suppress warnings using silent
   // if this file is missing. dotenv will never modify any environment variables
   // that have already been set. Variable expansion is supported in .env files.
   // https://github.com/motdotla/dotenv
-  // https://github.com/motdotla/dotenv-expand
   dotenvFiles.forEach((dotenvFile): void => {
-    if (fs.existsSync(dotenvFile)) {
-      require("dotenv-expand")(
-        require("dotenv").config({
+    resultKeys.push(
+      Object.keys(
+        dotenvConfig({
           path: dotenvFile
-        })
+        }).parsed
       )
-    }
+    )
   })
+
+  // Catch all keys from any .env file processed and merge with environment value from
+  // process.env. This is set by dotenv package.
+  const environmentItems: EnvironmentVariables = flattenAndUnique(resultKeys).reduce(
+    (prev, envKey) => ({ ...prev, [envKey]: process.env[envKey] }),
+    {} as EnvironmentVariables
+  )
+
+  const expandedEnvironment = expandEnvironment(environmentItems)
+
+  for (const [envKey, envValue] of Object.entries(expandedEnvironment)) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    process.env[envKey] = envValue
+  }
 
   if (process.env.APP_ROOT == null) {
     const detectedRoot = appRoot.get()
@@ -58,8 +83,8 @@ export function init(): void {
       process.env.APP_ROOT = detectedRoot
     } catch {
       throw new Error(
-        "Universal-DotEnv requires a writable process.env! "
-          + "Please make sure that this code is not transpiled with Webpack."
+        "Universal-DotEnv requires a writable process.env! " +
+          "Please make sure that this code is not transpiled with Webpack."
       )
     }
   }
@@ -92,8 +117,8 @@ function defaultFilterEnv(key: string): boolean {
   return APP_SPECIFIC_ENV.test(key)
 }
 
-const truthy = new Set([ "y", "yes", "true", true ])
-const falsy = new Set([ "n", "no", "false", false ])
+const truthy = new Set(["y", "yes", "true", true])
+const falsy = new Set(["n", "no", "false", false])
 
 export interface GetEnvironmentOptions {
   filter?: (key: string) => {}

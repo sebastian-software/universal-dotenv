@@ -51,6 +51,16 @@ Files are being loaded in this order. Values which are already set are never ove
 
 Note: `local` files without `NODE_ENV` are not respected when running in `NODE_ENV=test`.
 
+## Variable expansion
+
+Variable expansion is supported by _universal-dotenv_. All identifiers in environment values prefixed by `$` (dollar sign) or surrounded by `${NAME}` are expanded. Used algorithm is:
+
+- Merge all .env files and command line environment settings into one map (see File Priority)
+- Check every environment setting for variable expansion identifiers
+- Expand variable expansion identifiers recursively
+
+See files in `testcase/hierarchy` for an example of a complex variable expansion.
+
 ## Basic Usage
 
 All loading features are enabled by importing the core module itself and run init():
