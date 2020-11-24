@@ -57,34 +57,34 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/plugin-transform-runtime": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
-    "@effective/eslint-config": "^3.8.0",
-    "@effective/prettier": "^4.2.0",
+    "@babel/core": "^7.12.8",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@effective/eslint-config": "^3.9.0",
+    "@effective/prettier": "^4.2.1",
     "@types/app-root-dir": "^0.1.0",
-    "@types/jest": "^26.0.14",
-    "@types/yargs": "^15.0.7",
+    "@types/jest": "^26.0.15",
+    "@types/yargs": "^15.0.10",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^26.3.0",
-    "eslint": "^7.10.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
     "husky": "^4.3.0",
-    "jest": "^26.4.2",
-    "lint-staged": "^10.4.0",
-    "preppy": "^10.8.0",
-    "prettier": "^2.1.2",
-    "release-it": "^14.0.3",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.2",
+    "preppy": "^10.9.1",
+    "prettier": "^2.2.0",
+    "release-it": "^14.2.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.0.3"
+    "typescript": "^4.1.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.11.2",
+    "@babel/runtime": "^7.12.5",
     "app-root-dir": "^1.0.2",
-    "core-js": "^3.6.5",
+    "core-js": "^3.7.0",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
-    "yargs": "^16.0.3"
+    "yargs": "^16.1.1"
   },
   "husky": {
     "hooks": {
