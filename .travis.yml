@@ -3,6 +3,7 @@ language: node_js
 node_js:
 - 10
 - 12
+- 14
 
 install:
   - npm install --global npm
@@ -11,11 +12,6 @@ install:
 
 matrix:
   fast_finish: true
-
-notifications:
-  email: false
-  slack:
-    secure: hNIcTAlFGStstr7oEzcLZP9VOSSNE+gYxK/J7qYccpV4aBbq99mh0Uo95CnJ/aU33p5LBSDTnFzEdBDRfDBrfQ+d0DtITgGGMB59E0IOdBB1j0KbNY9o0dqGNjcVUTQzYw8kb550PIY9peucibp9d32XoO5uNJUzs+OmniGRH7Wh6wkdAWDzqscZqztI6E+5Tg2tp+ozXtArtYhbl7mVOKVpzBAPfrMTABT0PN/0Vt2A+pcf03vDMY4+MysFX+8oIU3gJmdceZC1kSR95kFjPGA651PyKH1+fOGJ93xokOHHmsWyfQBch6GOO9xIr8oKfnDuPXoff+x7zZ8J3l8mFS3TSvkNOrhSTqUqA1FFe/WnvGPVii5sqHoGuv/oqe9F1MMaY/znuVstNgsN8ygRQ3EqcGH4z3WVyRnKxZ07MpVcKbtR8NDKf/tKLgwyOQ3GEWJpOAAM6qTq3cbSd2Ybri9VYvq0aQADw6PkDLQVUaifz9ayiE+AQASjvSyS+qq/HsrVF7yyFNWO+zLQYYj69loYvg/ZfugNKXvtTDTb8DMC7MWbNs0Y3xCbm63P9ryLDrecteHUoF8Y0s8Mx6xrq10/yx5WWjK7TOXw5MsAEYlhdNo6VxQDpw4btEiv9jMKPGC/VoYh2O45zFiX33v+9+BaB5/4LrogdrLcddZxrrs=
 
 cache:
   directories:
