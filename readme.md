@@ -1,12 +1,10 @@
-# Universal DotEnv<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor] [![Dependencies][deps-img]][deps]
+# Universal DotEnv<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor]
 
 [sponsor]: https://www.sebastian-software.de
-[deps]: https://david-dm.org/sebastian-software/universal-dotenv
 [npm]: https://www.npmjs.com/package/universal-dotenv
 [travis]: https://travis-ci.org/sebastian-software/universal-dotenv
 [appveyor]: https://ci.appveyor.com/project/swernerx/universal-dotenv/branch/master
 [sponsor-img]: https://badgen.net/badge/Sponsored%20by/Sebastian%20Software/692446
-[deps-img]: https://badgen.net/david/dep/sebastian-software/universal-dotenv
 [npm-downloads-img]: https://badgen.net/npm/dm/universal-dotenv
 [npm-version-img]: https://badgen.net/npm/v/universal-dotenv
 [travis-img]: https://badgen.net/travis/sebastian-software/universal-dotenv?label=unix%20build
