@@ -1,6 +1,6 @@
 {
   "name": "universal-dotenv",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "description": "Robust Environment Configuration for Universal Applications.",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
