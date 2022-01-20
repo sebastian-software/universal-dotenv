@@ -1,0 +1,25 @@
+{
+  "presets": [
+    "@babel/typescript",
+    [
+      "@babel/env",
+      {
+        "loose": true,
+        "useBuiltIns": "usage",
+        "corejs": "3.20",
+        "targets": {
+          "node": 14
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": true,
+        "regenerator": false
+      }
+    ]
+  ]
+}
