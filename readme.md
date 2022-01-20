@@ -1,14 +1,12 @@
-# Universal DotEnv<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status Unix][travis-img]][travis] [![Build Status Windows][appveyor-img]][appveyor]
+# Universal DotEnv<br/>[![Sponsored by][sponsor-img]][sponsor] [![Version][npm-version-img]][npm] [![Downloads][npm-downloads-img]][npm] [![Build Status][github-img]][github]
 
 [sponsor]: https://www.sebastian-software.de
 [npm]: https://www.npmjs.com/package/universal-dotenv
-[travis]: https://travis-ci.org/sebastian-software/universal-dotenv
-[appveyor]: https://ci.appveyor.com/project/swernerx/universal-dotenv/branch/master
 [sponsor-img]: https://badgen.net/badge/Sponsored%20by/Sebastian%20Software/692446
 [npm-downloads-img]: https://badgen.net/npm/dm/universal-dotenv
 [npm-version-img]: https://badgen.net/npm/v/universal-dotenv
-[travis-img]: https://badgen.net/travis/sebastian-software/universal-dotenv?label=unix%20build
-[appveyor-img]: https://badgen.net/appveyor/ci/swernerx/universal-dotenv?label=windows%20build
+[github]: https://github.com/sebastian-software/universal-dotenv/actions
+[github-img]: https://badgen.net/github/status/sebastian-software/universal-dotenv?label=tests&icon=github
 
 Universal DotEnv - A Robust Environment Configuration for Universal Applications.
 
@@ -137,4 +135,4 @@ const { raw, stringified, webpack } = getEnvironment({ translate: false })
 
 <img src="https://cdn.rawgit.com/sebastian-software/sebastian-software-brand/0d4ec9d6/sebastiansoftware-en.svg" alt="Logo of Sebastian Software GmbH, Mainz, Germany" width="460" height="160"/>
 
-Copyright 2018-2021<br/>[Sebastian Software GmbH](http://www.sebastian-software.de)
+Copyright 2018-2022<br/>[Sebastian Software GmbH](http://www.sebastian-software.de)
