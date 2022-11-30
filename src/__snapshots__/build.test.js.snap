@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Serializes ENV_CONTEXT 1`] = `
-Object {
+{
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_IS_CLIENT": true,
@@ -13,7 +13,7 @@ Object {
 `;
 
 exports[`Serializes ENV_CONTEXT 2`] = `
-Object {
+{
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_IS_CLIENT": "true",

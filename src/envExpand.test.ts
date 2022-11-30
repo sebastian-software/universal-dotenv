@@ -126,7 +126,7 @@ test("expand environment map", () => {
   )
 
   expect(result).toMatchInlineSnapshot(`
-    Object {
+    {
       "ENV1": "env1",
       "ENV2": "expand env2 with env3: env3",
       "ENV3": "env3",

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Ignores non app-specific settings 1`] = `
-Object {
+{
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_OVERRIDE": "overridden",
@@ -11,7 +11,7 @@ Object {
 `;
 
 exports[`Ignores non app-specific settings 2`] = `
-Object {
+{
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_OVERRIDE": "\\"overridden\\"",
@@ -21,7 +21,7 @@ Object {
 `;
 
 exports[`Prevents translation of booleans when disabled 1`] = `
-Object {
+{
   "APP_DEBUG": "true",
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
@@ -32,7 +32,7 @@ Object {
 `;
 
 exports[`Prevents translation of booleans when disabled 2`] = `
-Object {
+{
   "APP_DEBUG": "\\"true\\"",
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
@@ -43,7 +43,7 @@ Object {
 `;
 
 exports[`Supports filtering envs to export 1`] = `
-Object {
+{
   "APP_DATA_JUSTME": "blue",
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
@@ -52,7 +52,7 @@ Object {
 `;
 
 exports[`Supports filtering envs to export 2`] = `
-Object {
+{
   "APP_DATA_JUSTME": "\\"blue\\"",
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
@@ -61,7 +61,7 @@ Object {
 `;
 
 exports[`Supports manually defined envs 1`] = `
-Object {
+{
   "APP_DATA": "yellow",
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
@@ -72,7 +72,7 @@ Object {
 `;
 
 exports[`Supports manually defined envs 2`] = `
-Object {
+{
   "APP_DATA": "\\"yellow\\"",
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
@@ -83,7 +83,7 @@ Object {
 `;
 
 exports[`Supports translation of booleans 1`] = `
-Object {
+{
   "APP_DEBUG": true,
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
@@ -94,7 +94,7 @@ Object {
 `;
 
 exports[`Supports translation of booleans 2`] = `
-Object {
+{
   "APP_DEBUG": "true",
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
@@ -105,7 +105,7 @@ Object {
 `;
 
 exports[`Supports translation of numbers 1`] = `
-Object {
+{
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_OVERRIDE": "overridden",
@@ -116,7 +116,7 @@ Object {
 `;
 
 exports[`Supports translation of numbers 2`] = `
-Object {
+{
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_OVERRIDE": "\\"overridden\\"",

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Defaults to development for NODE_ENV 1`] = `
-Object {
+{
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_OVERRIDE": "original",
@@ -11,7 +11,7 @@ Object {
 `;
 
 exports[`Defaults to development for NODE_ENV 2`] = `
-Object {
+{
   "APP_ROOT": Any<String>,
   "APP_SOURCE": Any<String>,
   "APP_TEST_OVERRIDE": "\\"original\\"",
