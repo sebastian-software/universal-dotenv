@@ -1,0 +1,15 @@
+# Managed by Alfred/OpenClaw for sebastian-software.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 0
+    groups:
+      github-actions-dependencies:
+        patterns:
+          - "*"
